@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\produtos;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,10 @@ Route::get('/Carrinho', function () {
 });
 Route::get('/faleConosco', function () {
     return view('faleConosco');
+});
+Route::get('/cadastrarprodutos', function () {
+    $chocolate = new produtos();
+    $chocolate->nome = "Chocolate";
+    $chocolate->save();
+    return produto::all();
 });
